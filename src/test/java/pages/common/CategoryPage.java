@@ -17,18 +17,8 @@ public class CategoryPage extends AbstractPage
         this.browser = browser;
     }
 
-    public WebElement getPrimaBrandFilter(){
-        WebElement brands = browser.findElement(By.cssSelector(".category-sidebar > .in > .filter:nth-of-type(3) .brands-list"));
-        return brands.findElement(By.xpath("//*[contains(text(), 'Prima')]"));
-    }
-
-    public WebElement getBeden4Filter(){
-        WebElement brands = browser.findElement(By.cssSelector(".category-sidebar > .in > .filter:nth-of-type(4) .brands-list"));
-        return brands.findElement(By.xpath("//*[contains(text(), '4 Beden')]"));
-    }
-
-    @FindBy(css = "#product-list-sort li[data-sort-criteria='PRICE_DESC']")
-    public WebElement sortPriceDesc;
+    @FindBy(css = "#product-list-sort li[data-sort-criteria='DISCOUNT_AMOUNT']")
+    public WebElement sortDiscountAmount;
 
     @FindBy(xpath = "//*[@id=\"product-list-sort\"]/nav/button")
     public WebElement othersButton;
@@ -44,4 +34,8 @@ public class CategoryPage extends AbstractPage
 
     @FindBy(className = "current-category--title")
     public WebElement currentCategoryTitle;
+
+    @FindBy(css = ".breadcrumb li:last-child")
+    public WebElement currentSubCategoryTitle;
+
 }

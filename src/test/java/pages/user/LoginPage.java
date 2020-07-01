@@ -27,6 +27,9 @@ public class LoginPage extends AbstractPage
     @FindBy(className = "display-name")
     public WebElement displayName;
 
+    @FindBy(css = ".user-box-link a[href='/uyelik-bilgilerim']")
+    public WebElement accountInformationLink;
+
     @FindBy(id = "otp-error-message")
     public WebElement otpErrorMessage;
 

@@ -1,5 +1,6 @@
 package pages.common;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import pages.AbstractPage;
@@ -7,19 +8,24 @@ import utils.Browser;
 
 public class MainPage extends AbstractPage
 {
+    Browser browser;
     public MainPage(Browser browser)
     {
         super(browser);
+        this.browser = browser;
     }
 
     @FindBy(css = ".header-sticky-register-login .header-sticky-register-login--list-item:last-child")
     public WebElement loginButton;
 
-    @FindBy(linkText = "Bebek, Oyuncak")
-    public WebElement babyToyMenu;
+    @FindBy(linkText = "Kağıt, Kozmetik")
+    public WebElement paperCosmeticsMenu;
 
-    @FindBy(css = "a[data-monitor-ga-action='Bebek Bezi']")
-    public WebElement diaperCategory;
+    @FindBy(css = "a[data-monitor-ga-action='Tıraş Malzemeleri']")
+    public WebElement shavingSuppliesCategory;
+
+    @FindBy(css = "a[data-monitor-ga-action='Tıraş Makinaları']")
+    public WebElement shaversCategory;
 
     @FindBy(css = ".shoping-cart-icon-block .fa-shopping-cart")
     public WebElement shoppingBasketButton;
@@ -53,4 +59,32 @@ public class MainPage extends AbstractPage
 
     @FindBy(className = "cookie-popup-dismiss")
     public WebElement cookieDismissButton;
+
+
+
+    @FindBy(id = "addressSelectionTooltip1")
+    public WebElement addressDropdown;
+
+    @FindBy(id = "addressSelectionTooltip2")
+    public WebElement deliveryFromStore;
+
+    @FindBy(xpath = "//*[@id=\"store\"]/form/div[1]/div/div/div[2]/div")
+    public WebElement citySelect;
+
+    @FindBy(xpath = "//*[@id=\"store\"]/form/div[2]/div/div/div[2]/div")
+    public WebElement townSelect;
+
+    @FindBy(xpath = "//*[@id=\"store\"]/form/div[3]/label/div/div[2]/div")
+    public WebElement districtSelect;
+
+    public WebElement selectNthOption(int n){
+        return browser.findElement(By.cssSelector(String.format(".chosen-container-active .chosen-drop .chosen-results li.active-result:nth-of-type(%s)", n)));
+    }
+
+    @FindBy(id = "search")
+    public WebElement searchInput;
+
+    @FindBy(css = "#main-search button")
+    public WebElement searchButton;
+
 }

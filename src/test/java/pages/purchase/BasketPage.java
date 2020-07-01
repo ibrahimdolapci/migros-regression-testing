@@ -26,4 +26,19 @@ public class BasketPage extends AbstractPage
 
     @FindBy(xpath = "//*[@id=\"cartPageBagChoiceForm\"]/div/label[2]")
     public WebElement clothBagRadioButton;
+
+    @FindBy(id = "alternativeProductChoice")
+    public WebElement alternativeProductChoice;
+
+    @FindBy(css = "#alternativeProductChoice option[value='NO_ALTERNATIVE']")
+    public WebElement noAlternativeOption;
+
+    @FindBy(css = "#deliveryTimeSelection tr:nth-of-type(4) td:nth-of-type(4) input")
+    public WebElement deliveryTimeSelection;
+
+    @FindBy(css = "#deliveryTimeSelection .delivery-time .description")
+    public WebElement deliveryTime;
+
+    @FindBy(css = "#cart-info button.next-button")
+    public WebElement goToPaymentButton;
 }
